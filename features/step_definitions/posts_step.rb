@@ -1,13 +1,16 @@
 # encoding: UTF-8
 
-Given /^Postを登録 \(名前 "([^"]*)", タイトル "([^"]*)", 内容 "([^"]*)"\)$/ do |name, title, content|
-  visit('/posts/new')
-  within("#new_post") do
-    fill_in 'post_name', with: name
-    fill_in 'post_title', with: title
-    fill_in 'post_content', with: content
+
+Given /^Postを登録$/ do |table|
+  table.hashes.each do | params |
+    visit('/posts/new')
+    within("#new_post") do
+      fill_in 'post_name', with: params[:name]
+      fill_in 'post_title', with: params[:title]
+      fill_in 'post_content', with: params[:content]
+    end
+    click_button "Create Post"
   end
-  click_button "Create Post"
 end
 
 When /^Postsにアクセスしている$/ do
