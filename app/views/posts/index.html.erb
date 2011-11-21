@@ -1,4 +1,4 @@
-<h1>Listing posts</h1>
+<h1>記事一覧</h1>
 
 <table>
   <tr>
@@ -15,13 +15,13 @@
     <td><%= post.name %></td>
     <td><%= post.title %></td>
     <td><%= post.content %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to '表示', post %></td>
+    <td><%= link_to '編集', edit_post_path(post) %></td>
+    <td><%= link_to '削除', post, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Post', new_post_path %>
+<%= link_to '新しい記事', new_post_path %>
