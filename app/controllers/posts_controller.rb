@@ -1,4 +1,12 @@
 class PostsController < ApplicationController
+  def search
+    if params['name'].blank?
+      @posts = Post.all
+    else
+      @posts = Post.where("name = ?", params['name']) 
+    end
+    render partial: 'result_table'
+  end
   # GET /posts
   # GET /posts.json
   def index
