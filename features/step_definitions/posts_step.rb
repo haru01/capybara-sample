@@ -26,3 +26,22 @@ Then /^登録された記事が一覧に表示されること$/ do |table|
     page.should have_css('tr td', text: params[:title])
   end
 end
+
+
+When /^「(.*)」で Nameの絞り検索した$/ do |name_keyworkd|
+  page.fill_in('name_keyword', with: name_keyworkd)
+  click_button "Name 絞り込み"
+end
+
+Then /^該当する記事一覧が表示されること$/ do |table|
+  table.hashes.each do | params |
+    page.should have_css('tr td', text: params[:name])
+    page.should have_css('tr td', text: params[:title])
+  end
+end
+
+Then /^該当しない記事一覧が表示されないこと$/ do |table|
+  table.hashes.each do | params |
+    page.should_not have_css('tr td', text: params[:name])
+  end
+end
