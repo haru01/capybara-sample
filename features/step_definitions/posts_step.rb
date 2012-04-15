@@ -12,7 +12,7 @@ Given /^記事を投稿する$/ do |table|
   end
 end
 
-When /^記事一覧を表示している$/ do
+When /^記事一覧を表示する$/ do
   visit('/posts')
 end
 

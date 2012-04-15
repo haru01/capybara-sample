@@ -1,9 +1,10 @@
 <h1>記事一覧</h1>
 
-<br/><input id='name_keyword' type='text'><input id='name_keyword_search'type='button' value='Name 絞り込み'>
-<%= javascript_tag :defer => 'defer' do -%>
+<input id='name_keyword' type='text'>
+<input id='name_keyword_search'type='button' value='Name 絞り込み'>
+<%= javascript_tag do -%>
   $("#name_keyword_search").click(function(e){
-    $.get("posts/search", { name: $('#name_keyword').val() },
+    $.get('<%= search_posts_path %>', { name: $('#name_keyword').val() },
       function(data) {
         $("#result").html(data)
     });
