@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     if params['name'].blank?
       @posts = Post.all
     else
-      @posts = Post.where("name = ?", params['name']) 
+      @posts = Post.where("name LIKE ?", "%#{params['name']}%")
     end
     render partial: 'result_table'
   end
