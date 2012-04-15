@@ -2,7 +2,7 @@
 
 Given /^記事を投稿する$/ do |table|
   table.hashes.each do | params |
-    visit('/posts/new')
+    visit(new_post_path)
     within("#new_post") do
       fill_in 'post_name', with: params[:name]
       fill_in 'post_title', with: params[:title]
@@ -13,7 +13,7 @@ Given /^記事を投稿する$/ do |table|
 end
 
 When /^記事一覧を表示する$/ do
-  visit('/posts')
+  visit(posts_path)
 end
 
 Then /^画面名「(.*)」が表示されること$/ do |page_name|
