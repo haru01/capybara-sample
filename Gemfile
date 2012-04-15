@@ -33,8 +33,8 @@ gem 'jquery-rails'
 
 group :test do
   # Pretty printed test output
-  gem 'capybara'
   gem 'rspec-rails'
+  gem 'capybara-webkit', '0.11.0'
   gem 'cucumber-rails'
   gem 'minitest'
   gem 'database_cleaner'
